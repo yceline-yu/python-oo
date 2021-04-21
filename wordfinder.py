@@ -1,7 +1,14 @@
 from random import choice
 
 class WordFinder:
-    """Word Finder: finds random words from a dictionary."""
+    """Word Finder: finds random words from a dictionary.
+
+        >>> wf = WordFinder("test.txt")
+        3 words read
+        >>> wf.random()
+        'words'
+
+    """
 
     def __init__(self, file_path):
         """the file path provided"""
@@ -27,7 +34,7 @@ class SpecialWordFinder(WordFinder):
         """handles blanks and lines that start #"""
         file = open(self.file_path)
         for line in file:
-            if line == "\n" or line[0] == "#": 
+            if line == "\n" or line[0] == "#":
                 continue
             else:
                 self.words.append(line.replace("\n",""))
